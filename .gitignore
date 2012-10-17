@@ -54,3 +54,4 @@ aspnet_client
 # Visual Studio profiler
 *.psess
 *.vsp
+/*.suo
