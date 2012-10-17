@@ -1,0 +1,56 @@
+# Build Folders 
+[Bb]in/
+[Oo]bj/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.vspscc
+*.vssscc
+.builds
+
+# mstest test results
+TestResults/
+[Tt]est[Rr]esult*
+
+# Click-Once directory
+publish
+
+# Publish Web Output
+*.Publish.xml
+
+# User Files
+*.user
+*.suo 
+
+#Resharper
+_ReSharper*
+
+#nuget packages
+packages/
+
+#Cahes
+StyleCop.Cache 
+Thumbs.db 
+
+aspnet_client 
+
+# Visual Studio profiler
+*.psess
+*.vsp
