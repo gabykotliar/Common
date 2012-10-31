@@ -1,0 +1,22 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath64)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+  <PropertyGroup>
+	<!-- ExtensionTasksPath value needed to be fixed cause is pointing to (x86) -->
+	<ExtensionTasksPath>$(MSBuildExtensionsPath64)\ExtensionPack\4.0\</ExtensionTasksPath>
+  </PropertyGroup>
+  <ItemGroup>
+    
+    <DependencyDirectories Include="C:\Program Files (x86)\StyleCop 4.7"/>    	
+    	
+  </ItemGroup>
+  <Target Name="Default">
+      
+    <MSBuild.ExtensionPack.CodeQuality.FxCop 
+		TaskAction="Analyse"
+		Project="Common.FxCop"
+		OutputFile="FxCopViolations.xml">
+      <Output TaskParameter="AnalysisFailed" PropertyName="Result"/>
+    </MSBuild.ExtensionPack.CodeQuality.FxCop>    
+    
+  </Target>
+</Project>
