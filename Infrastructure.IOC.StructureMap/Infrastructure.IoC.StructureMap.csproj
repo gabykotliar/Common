@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EquallyNamedTypeAndInterfaceConvention.cs" />
+    <Compile Include="StructureMapFactory.cs" />
     <Compile Include="ValidatorInterfaceNameConvention.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

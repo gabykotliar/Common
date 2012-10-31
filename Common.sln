@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4D618F
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log", "Log", "{844841F1-EBE8-4522-83C0-AD17956151C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Net", "Log\Log4Net\Log4Net.csproj", "{02DF24EA-774A-4F03-9AE5-3E3CC5D47028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +36,15 @@ Global
 		{AB94F5B7-6DFE-46D2-BC74-3FA792215CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB94F5B7-6DFE-46D2-BC74-3FA792215CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB94F5B7-6DFE-46D2-BC74-3FA792215CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028} = {844841F1-EBE8-4522-83C0-AD17956151C2}
 	EndGlobalSection
 EndGlobal
