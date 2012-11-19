@@ -1,5 +1,4 @@
-﻿using Common.Log;
-using global::StructureMap;
+﻿using global::StructureMap;
 
 namespace Common.Infrastructure.IoC.StructureMap
 {

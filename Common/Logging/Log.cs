@@ -1,29 +1,34 @@
 ﻿using System;
 
-namespace Common.Log
+namespace Common.Logging
 {
     public class Log
     {
         #region Attributes
 
-        private Logger logger;
+        private readonly Logger logger;
         private LogEntry entry;
 
         #endregion
 
-        private static Log Build()
+        public Log(Logger logger)
         {
-            var logger = Configuration.Factory.GetInstance<Logger>();
-
-            return new Log(logger);
+            this.logger = logger;            
         }
 
-        public static Log Message(string text)
+        private Log Build ()
+        {
+            entry = logger.GetLogEntry();
+
+            return this;
+        }
+
+        public Log Message(string text)
         {
             return Build().WithMessage(text);
         }
 
-        public static Log Exception(Exception ex)
+        public Log Exception(Exception ex)
         {
             return Build()
                     .WithException(ex)
@@ -31,33 +36,27 @@ namespace Common.Log
                     .With(Severity.Error);
         }
 
-        private Log(Logger logger)
-        {
-            this.logger = logger;
-            this.entry = logger.GetLogEntry();
-        }
-       
         public Log WithMessage(string message)
         {
-            this.entry.Message = message;
+            entry.Message = message;
             return this;
         }
 
         public Log With(Severity severity)
         {
-            this.entry.Severity = severity;
+            entry.Severity = severity;
             return this;
         }
 
         public Log WithException(Exception ex)
         {
-            this.entry.Exception = ex;
+            entry.Exception = ex;
             return this;
         }
 
         public void Write()
         {
-            this.logger.Write(this.entry);
+            logger.Write(this.entry);
         }
     }
 }

@@ -6,8 +6,8 @@
     <ProjectGuid>{AB94F5B7-6DFE-46D2-BC74-3FA792215CBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>Common.Tests</RootNamespace>
+    <AssemblyName>Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,7 +64,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\Cache\MemoryCacheAdapterTests.cs" />
     <Compile Include="Common\Extensions\TypeExtensionsTests.cs" />
+    <Compile Include="Common\Logging\LogEntry.cs" />
+    <Compile Include="Common\Logging\LogTests.cs" />
     <Compile Include="Infrastructure\IoC\StructureMap\ValidatorInterfaceNameConventionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +84,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

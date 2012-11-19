@@ -1,4 +1,4 @@
-namespace Common.Log
+namespace Common
 {
     public interface Factory
     {

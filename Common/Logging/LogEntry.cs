@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common.Log
+namespace Common.Logging
 {
     public class LogEntry
     {

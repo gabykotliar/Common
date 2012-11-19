@@ -1,14 +1,21 @@
-﻿using log4net;
+﻿using Common.Logging;
+
+using log4net;
 
 namespace Common.Log.Log4Net
 {
-    internal class Log4NetLogger : Logger
+    public class Log4NetLoggerAdapter : Logger
     {
         private readonly ILog logger;
 
-        public Log4NetLogger()
+        public Log4NetLoggerAdapter()
         {
-            this.logger = LogManager.GetLogger(this.GetType());
+            logger = LogManager.GetLogger(GetType());
+        }
+
+        internal Log4NetLoggerAdapter(ILog logger)
+        {
+            this.logger = logger;
         }
 
         public LogEntry GetLogEntry()
@@ -22,33 +29,33 @@ namespace Common.Log.Log4Net
             {
                 case Severity.Critical: 
                     if (logEntry.Exception != null)
-                        this.logger.Fatal(logEntry.Message, logEntry.Exception);
+                        logger.Fatal(logEntry.Message, logEntry.Exception);
                     else
-                        this.logger.Fatal(logEntry.Message);
+                        logger.Fatal(logEntry.Message);
                     break;
                 case Severity.Error:
                     if (logEntry.Exception != null)
-                        this.logger.Error(logEntry.Message, logEntry.Exception);
+                        logger.Error(logEntry.Message, logEntry.Exception);
                     else
-                        this.logger.Error(logEntry.Message);
+                        logger.Error(logEntry.Message);
                     break;
                 case Severity.Warning:
                     if (logEntry.Exception != null)
-                        this.logger.Warn(logEntry.Message, logEntry.Exception);
+                        logger.Warn(logEntry.Message, logEntry.Exception);
                     else
-                        this.logger.Warn(logEntry.Message);
+                        logger.Warn(logEntry.Message);
                     break;
                 case Severity.Information:
                     if (logEntry.Exception != null)
-                        this.logger.Info(logEntry.Message, logEntry.Exception);
+                        logger.Info(logEntry.Message, logEntry.Exception);
                     else
-                        this.logger.Info(logEntry.Message);
+                        logger.Info(logEntry.Message);
                     break;
                 case Severity.Verbose:
                     if (logEntry.Exception != null)
-                        this.logger.Debug(logEntry.Message, logEntry.Exception);
+                        logger.Debug(logEntry.Message, logEntry.Exception);
                     else
-                        this.logger.Debug(logEntry.Message);
+                        logger.Debug(logEntry.Message);
                     break;
             }
         }
