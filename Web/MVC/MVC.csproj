@@ -7,8 +7,8 @@
     <ProjectGuid>{71CD61CB-4BCB-4DE9-8C08-E50255703453}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common.Web.MVC</RootNamespace>
-    <AssemblyName>Common.Web.MVC</AssemblyName>
+    <RootNamespace>Common.Web.Mvc</RootNamespace>
+    <AssemblyName>Common.Web.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

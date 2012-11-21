@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Net", "Log\Log4Net\Log4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B2C1A647-01CB-48B4-B00C-493AC4433E8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "Web\MVC\MVC.csproj", "{71CD61CB-4BCB-4DE9-8C08-E50255703453}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc", "Web\MVC\Mvc.csproj", "{71CD61CB-4BCB-4DE9-8C08-E50255703453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
