@@ -3,7 +3,7 @@ using System.Runtime.Caching;
 
 namespace Common.Caching
 {
-    public class MemoryCacheAdapter : Caching.Cache
+    public class MemoryCacheAdapter : Cache
     {
         private readonly MemoryCache memoryCache = MemoryCache.Default;
 
@@ -25,6 +25,19 @@ namespace Common.Caching
         public T Get<T>(string key) where T : class
         {
             return memoryCache.Get(key) as T;
+        }
+
+        public T Get<T>(string key, Func<T> alternateGet) where T : class
+        {
+            var value = memoryCache.Get(key) as T;
+
+            if (value == null)
+            {
+                value = alternateGet.Invoke();
+                memoryCache.Add(key, value, new CacheItemPolicy());
+            }
+
+            return value;
         }
 
         public void InvalidateCacheItem(string key)

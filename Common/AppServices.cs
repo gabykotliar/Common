@@ -37,7 +37,7 @@ namespace Common
                     {
                         if (log != null) return log;
 
-                        if (factory == null) throw new ConfigurationErrorsException("If a specific logger is not provided you need to provide a Factory by calling SetFactory(Factory factory)");
+                        CheckFactoryFor("logger");
 
                         log = new Log(factory.GetInstance<Logger>());
                     }
@@ -53,7 +53,7 @@ namespace Common
 
                 return log;
             }
-        }
+        }        
 
         public static Cache Cache
         {
@@ -67,7 +67,7 @@ namespace Common
                     {
                         if (cache != null) return cache;
 
-                        if (cache == null) throw new ConfigurationErrorsException("If a specific cache is not provided you need to provide a Factory by calling SetFactory(Factory factory)");
+                        CheckFactoryFor("logger");
 
                         cache = factory.GetInstance<Cache>();
                     }
@@ -83,6 +83,12 @@ namespace Common
 
                 return cache;
             }
+        }
+
+        private static void CheckFactoryFor(string target)
+        {
+            if (factory == null)
+                throw new ConfigurationErrorsException(string.Format("If a specific {0} is not provided you need to provide a Factory by calling SetFactory(Factory factory)", target));
         }
     }
 }

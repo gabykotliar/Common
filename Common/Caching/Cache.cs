@@ -10,6 +10,8 @@ namespace Common.Caching
 
         T Get<T>(string key) where T : class;
 
+        T Get<T>(string key, Func<T> alternateGet) where T : class;
+
         void InvalidateCacheItem(string key);
     }
 }

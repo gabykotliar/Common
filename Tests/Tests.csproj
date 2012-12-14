@@ -6,7 +6,7 @@
     <ProjectGuid>{AB94F5B7-6DFE-46D2-BC74-3FA792215CBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common.Tests</RootNamespace>
+    <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,7 +64,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Common\Cache\MemoryCacheAdapterTests.cs" />
+    <Compile Include="Common\Caching\MemoryCacheAdapterTests.cs" />
     <Compile Include="Common\Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Common\Logging\LogEntry.cs" />
     <Compile Include="Common\Logging\LogTests.cs" />
@@ -77,7 +77,7 @@
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure.IOC.StructureMap\Infrastructure.IoC.StructureMap.csproj">
-      <Project>{c13e0b37-79c9-49f5-8fa4-ed8203249c5d}</Project>
+      <Project>{C13E0B37-79C9-49F5-8FA4-ED8203249C5D}</Project>
       <Name>Infrastructure.IoC.StructureMap</Name>
     </ProjectReference>
   </ItemGroup>

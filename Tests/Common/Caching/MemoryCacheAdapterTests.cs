@@ -1,16 +1,14 @@
 ﻿using Common.Caching;
-
 using FluentAssertions;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests.Common.Cache
+namespace Tests.Common.Caching
 {
     [TestClass]
     public class MemoryCacheAdapterTests
     {
         [TestMethod]
-        public void ConcreteTypeIsConcreteTest()
+        public void AddGenericTest()
         {
             var adapter = new MemoryCacheAdapter();
             var value = new object();
@@ -18,6 +16,6 @@ namespace Tests.Common.Cache
             adapter.Add("asdf", value);
 
             adapter.Get<object>("asdf").Should().Be(value);
-        }        
+        }
     }    
 }
