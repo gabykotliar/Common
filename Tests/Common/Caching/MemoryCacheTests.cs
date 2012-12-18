@@ -5,13 +5,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Common.Caching
 {
     [TestClass]
-    public class MemoryCacheAdapterTests
+    public class MemoryCacheTests
     {
         [TestMethod]
         public void AddGenericTest()
         {
-            var adapter = new MemoryCacheAdapter();
-            var value = new object();
+            var adapter = new MemoryCache();
+            var value = new { Some = "string" };
 
             adapter.Add("asdf", value);
 
