@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "Persistence\NHibernate\NHibernate.csproj", "{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspects", "Aspects\Aspects.csproj", "{3A62BEA5-5339-4B8C-BB0A-45A84C802016}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A62BEA5-5339-4B8C-BB0A-45A84C802016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A62BEA5-5339-4B8C-BB0A-45A84C802016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A62BEA5-5339-4B8C-BB0A-45A84C802016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A62BEA5-5339-4B8C-BB0A-45A84C802016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
