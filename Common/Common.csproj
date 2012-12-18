@@ -44,9 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppServices.cs" />
+    <Compile Include="Caching\DisabledCache.cs" />
+    <Compile Include="Configuration\AppServicesConfiguration.cs" />
     <Compile Include="AppServicesException.cs" />
     <Compile Include="Caching\Cache.cs" />
-    <Compile Include="Caching\MemoryCacheAdapter.cs" />
+    <Compile Include="Configuration\CacheProfile.cs" />
+    <Compile Include="Configuration\CachingProfiles.cs" />
+    <Compile Include="Configuration\CachingSubSection.cs" />
+    <Compile Include="Caching\MemoryCache.cs" />
+    <Compile Include="Caching\Profile.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Logging\Logger.cs" />

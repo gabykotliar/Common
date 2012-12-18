@@ -2,13 +2,14 @@
 using System.Configuration;
 
 using Common.Caching;
+using Common.Configuration;
 using Common.Logging;
 
 namespace Common
 {
     public static class AppServices
     {
-        private static readonly object lockRef = new object();
+        private static readonly object LockRef = new object();
 
         private static Factory factory;
 
@@ -33,7 +34,7 @@ namespace Common
 
                 try
                 {
-                    lock (lockRef)
+                    lock (LockRef)
                     {
                         if (log != null) return log;
 
@@ -63,13 +64,15 @@ namespace Common
 
                 try
                 {
-                    lock (lockRef)
+                    lock (LockRef)
                     {
                         if (cache != null) return cache;
 
-                        CheckFactoryFor("logger");
+                        CheckFactoryFor("cache");
 
-                        cache = factory.GetInstance<Cache>();
+                        cache = AppServicesConfiguration.Instance.Caching.Disabled 
+                                    ? new DisabledCache() 
+                                    : factory.GetInstance<Cache>();
                     }
                 }
                 catch(ConfigurationErrorsException)

@@ -1,33 +1,30 @@
 ﻿using System;
+using System.Configuration;
 using System.Runtime.Caching;
+using Common.Configuration;
 
 namespace Common.Caching
 {
-    public class MemoryCacheAdapter : Cache
+    public class MemoryCache : Cache
     {
-        private readonly MemoryCache memoryCache = MemoryCache.Default;
+        private readonly System.Runtime.Caching.MemoryCache memoryCache = System.Runtime.Caching.MemoryCache.Default;
 
-        public void Add(string key, object value, DateTime absoluteExpiry)
+        public override void Add(string key, object value, DateTime absoluteExpiry)
         {
             memoryCache.Add(key, value, new CacheItemPolicy { AbsoluteExpiration = new DateTimeOffset(absoluteExpiry) });
         }
 
-        public void Add(string key, object value, TimeSpan slidingExpiryWindow)
+        public override void Add(string key, object value, TimeSpan slidingExpiryWindow)
         {
             memoryCache.Add(key, value, new CacheItemPolicy { SlidingExpiration = slidingExpiryWindow });
         }
 
-        public void Add(string key, object value)
-        {
-            memoryCache.Add(key, value, new CacheItemPolicy());
-        }
-
-        public T Get<T>(string key) where T : class
+        public override T Get<T>(string key) 
         {
             return memoryCache.Get(key) as T;
         }
 
-        public T Get<T>(string key, Func<T> alternateGet) where T : class
+        public override T Get<T>(string key, Func<T> alternateGet) 
         {
             var value = memoryCache.Get(key) as T;
 
@@ -40,7 +37,7 @@ namespace Common.Caching
             return value;
         }
 
-        public void InvalidateCacheItem(string key)
+        public override void InvalidateCacheItem(string key)
         {
             if (!memoryCache.Contains(key)) return;
 
