@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B2C1A647-01C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc", "Web\MVC\Mvc.csproj", "{71CD61CB-4BCB-4DE9-8C08-E50255703453}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{3CAE2B5C-79BF-4711-B95E-516BA58D6241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "Persistence\NHibernate\NHibernate.csproj", "{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,10 @@ Global
 		{71CD61CB-4BCB-4DE9-8C08-E50255703453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71CD61CB-4BCB-4DE9-8C08-E50255703453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71CD61CB-4BCB-4DE9-8C08-E50255703453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +63,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{02DF24EA-774A-4F03-9AE5-3E3CC5D47028} = {844841F1-EBE8-4522-83C0-AD17956151C2}
 		{71CD61CB-4BCB-4DE9-8C08-E50255703453} = {B2C1A647-01CB-48B4-B00C-493AC4433E8C}
+		{4B6C0803-C371-46F0-86E6-1B9CEAC183DD} = {3CAE2B5C-79BF-4711-B95E-516BA58D6241}
 	EndGlobalSection
 EndGlobal
