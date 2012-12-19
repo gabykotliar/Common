@@ -1,4 +1,4 @@
-# Build Folders 
+# Build Folders
 [Bb]in/
 [Oo]bj/
 
@@ -46,10 +46,10 @@ _ReSharper*
 packages/
 
 #Cahes
-StyleCop.Cache 
-Thumbs.db 
+StyleCop.Cache
+Thumbs.db
 
-aspnet_client 
+aspnet_client
 
 # Visual Studio profiler
 *.psess
