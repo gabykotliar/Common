@@ -1,12 +1,12 @@
-﻿namespace Common.Persistence.NHibernate
-{
-    using Common;
-    using global::NHibernate;
-    using StructureMap;
-    using System;
-    using System.Linq;
-    using System.Web;
+﻿using System;
+using System.Linq;
+using System.Web;
 
+using global::NHibernate;
+using StructureMap;
+
+namespace Common.Persistence.NHibernate
+{
     public class SessionModule : IHttpModule
     {
         public void Init(HttpApplication context)
@@ -18,7 +18,7 @@
         {            
         }
 
-        public void ContextEndRequest(Object sender, EventArgs e)
+        public void ContextEndRequest(object sender, EventArgs e)
         {
             var request = ((HttpApplication)sender).Request;
 

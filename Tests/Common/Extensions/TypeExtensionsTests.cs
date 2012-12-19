@@ -1,6 +1,6 @@
-﻿using FluentAssertions;
+﻿using Common.Extensions;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Common.Extensions;
 
 namespace Tests.Common.Extensions
 {
@@ -10,7 +10,7 @@ namespace Tests.Common.Extensions
         [TestMethod]
         public void ConcreteTypeIsConcreteTest()
         {
-            typeof (ConcreteType).IsConcreteType().Should().BeTrue();
+            typeof(ConcreteType).IsConcreteType().Should().BeTrue();
         }
 
         [TestMethod]

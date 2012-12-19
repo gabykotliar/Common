@@ -16,7 +16,7 @@ namespace Common.Logging
             this.logger = logger;            
         }
 
-        private Log Build ()
+        private Log Build()
         {
             entry = logger.GetLogEntry();
 

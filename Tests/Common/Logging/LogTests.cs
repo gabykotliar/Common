@@ -16,7 +16,6 @@ namespace Common.Tests.Common.Logging
         [TestInitialize]
         public void TestInitialize()
         {
-
         }
 
         [TestMethod]
@@ -29,13 +28,13 @@ namespace Common.Tests.Common.Logging
             mockLogger.Setup(m => m.GetLogEntry()).Returns(entry);
             mockLogger.Setup(m => m.Write(entry));
 
-            const string message = "asdf";
+            const string Message = "asdf";
 
             new Log(mockLogger.Object)
-                .Message(message)
+                .Message(Message)
                 .Write();
 
-            entry.Message.Should().Be(message);
+            entry.Message.Should().Be(Message);
             mockLogger.VerifyAll();
         }
 
@@ -72,14 +71,14 @@ namespace Common.Tests.Common.Logging
             mockLogger.Setup(m => m.GetLogEntry()).Returns(entry);
             mockLogger.Setup(m => m.Write(entry));
 
-            const string message = "asdf";
+            const string Message = "asdf";
 
             new Log(mockLogger.Object)
                 .Exception(new Exception("original message"))
-                .WithMessage(message)
+                .WithMessage(Message)
                 .Write();
 
-            entry.Message.Should().Be(message);
+            entry.Message.Should().Be(Message);
             mockLogger.VerifyAll();
         }
 
@@ -114,7 +113,7 @@ namespace Common.Tests.Common.Logging
             var ex = new Exception();
 
             new Log(mockLogger.Object)
-                .Message("")
+                .Message(string.Empty)
                 .WithException(ex)
                 .Write();
 

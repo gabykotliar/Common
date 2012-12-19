@@ -52,7 +52,6 @@
     <Compile Include="Configuration\CachingProfiles.cs" />
     <Compile Include="Configuration\CachingSubSection.cs" />
     <Compile Include="Caching\MemoryCache.cs" />
-    <Compile Include="Caching\Profile.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="Logging\Logger.cs" />

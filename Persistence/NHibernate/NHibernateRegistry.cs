@@ -1,9 +1,8 @@
-﻿namespace Common.Persistence.NHibernate
+﻿using global::NHibernate;
+using StructureMap.Configuration.DSL;
+
+namespace Common.Persistence.NHibernate
 {
-    using StructureMap.Configuration.DSL;
-
-    using global::NHibernate;
-
     public class NHibernateRegistry : Registry
     {
         public NHibernateRegistry() 

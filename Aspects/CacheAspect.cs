@@ -9,6 +9,7 @@ namespace Common.Aspects
     public class CacheAspect : OnMethodBoundaryAspect
     {
         public string Profile { get; set; }
+
         public string SlidingExpiryWindow { get; set; }
 
         public override void OnEntry(MethodExecutionArgs args)
@@ -59,7 +60,7 @@ namespace Common.Aspects
                 i++;
             }
 
-            var key = string.Concat(args.Method.DeclaringType.FullName, ".", args.Method.Name,"?", paramsKeySection.ToString());
+            var key = string.Concat(args.Method.DeclaringType.FullName, ".", args.Method.Name, "?", paramsKeySection.ToString());
 
             return key;
         }

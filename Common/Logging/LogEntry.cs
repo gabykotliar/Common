@@ -10,7 +10,9 @@ namespace Common.Logging
         }
 
         public string Message { get; set; }
+
         public Exception Exception { get; set; }
+
         public Severity Severity { get; set; }
     }
 }

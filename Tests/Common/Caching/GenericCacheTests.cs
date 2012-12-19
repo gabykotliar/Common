@@ -82,7 +82,7 @@ namespace Tests.Common.Caching
         public void CacheTest()
         {
             var mockCache = new Mock<Cache>();
-            var obj = new {Prop = "asdf"};
+            var obj = new { Prop = "asdf" };
             var key = "obj";
 
             mockCache.CallBase = true;

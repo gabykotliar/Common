@@ -23,9 +23,11 @@ namespace Common.Caching
         }
 
         public abstract void Add(string key, object value, DateTime absoluteExpiry);
+
         public abstract void Add(string key, object value, TimeSpan slidingExpiryWindow);
         
         public abstract T Get<T>(string key) where T : class;
+
         public abstract T Get<T>(string key, Func<T> alternateGet) where T : class;
 
         public abstract void InvalidateCacheItem(string key);

@@ -75,7 +75,7 @@ namespace Common
                                     : factory.GetInstance<Cache>();
                     }
                 }
-                catch(ConfigurationErrorsException)
+                catch (ConfigurationErrorsException)
                 {
                     throw;
                 }

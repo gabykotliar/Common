@@ -1,7 +1,7 @@
 ﻿using System;
+using Common.Extensions;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
-using Common.Extensions;
 
 namespace Common.Infrastructure.IoC.StructureMap
 {
