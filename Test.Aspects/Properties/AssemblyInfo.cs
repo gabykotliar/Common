@@ -1,8 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-using Common.Aspects;
-
 [assembly: AssemblyTitle("Test.Aspects")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -19,6 +17,7 @@ using Common.Aspects;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
-[assembly: CacheAspect(SlidingExpiryWindow = "60",
-    AttributeTargetTypes = "Test.Aspects.CachedClass",    
-    AttributeTargetMembers = "Get")]
+// this should work but for the moment is not. It's maybe a particularity of the test project
+//[assembly: Common.Aspects.CacheAspect(SlidingExpiryWindow = "60",
+//    AttributeTargetTypes = "Test.Aspects.CachedClass",    
+//    AttributeTargetMembers = "Get*")]
