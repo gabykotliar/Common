@@ -31,9 +31,11 @@
    <Directory>$(ProjectDir)/../Domain.Validation.Infrastructure/bin/Debug/</Directory>
    <Directory>$(ProjectDir)/../Web/bin/</Directory>
   </AssemblyReferenceDirectories>
+  <Target Name="$(ProjectDir)/../Aspects/bin/Debug/Common.Aspects.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/../Common/bin/Debug/Common.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/../Infrastructure.IOC.StructureMap/bin/Debug/Common.Infrastructure.IoC.StructureMap.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/../Log/Log4Net/bin/Debug/Common.Log.Log4Net.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/../Persistence/NHibernate/bin/Debug/Common.Persistence.NHibernate.dll" Analyze="True" AnalyzeAllChildren="True" />
  </Targets>
  <Rules>
   <RuleFiles>
@@ -102,7 +104,30 @@
    <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
    <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
    <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
-   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="CompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="DoNotNameEnumValuesReserved" Enabled="True" />
+    <Rule Name="DoNotPrefixEnumValuesWithTypeName" Enabled="True" />
+    <Rule Name="EventsShouldNotHaveBeforeOrAfterPrefix" Enabled="True" />
+    <Rule Name="FlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="IdentifiersShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="IdentifiersShouldBeSpelledCorrectly" Enabled="True" />
+    <Rule Name="IdentifiersShouldDifferByMoreThanCase" Enabled="True" />
+    <Rule Name="IdentifiersShouldHaveCorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotContainTypeNames" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotContainUnderscores" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectPrefix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotMatchKeywords" Enabled="True" />
+    <Rule Name="OnlyFlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="ParameterNamesShouldMatchBaseDeclaration" Enabled="True" />
+    <Rule Name="ParameterNamesShouldNotMatchMemberNames" Enabled="True" />
+    <Rule Name="PropertyNamesShouldNotMatchGetMethods" Enabled="True" />
+    <Rule Name="ResourceStringCompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="ResourceStringsShouldBeSpelledCorrectly" Enabled="True" />
+    <Rule Name="TypeNamesShouldNotMatchNamespaces" Enabled="True" />
+    <Rule Name="UsePreferredTerms" Enabled="True" />
+   </RuleFile>
    <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
    <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
    <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
@@ -150,5 +175,319 @@
   </RuleFiles>
   <Groups />
   <Settings />
- </Rules> 
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Namespaces>
+   <Namespace Name="Common">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2013-01-14 12:39:30Z">
+      <Issue>
+       <Item>Common</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Common.Caching">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2013-01-14 12:39:30Z">
+      <Issue>
+       <Item>Common.Caching</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Common.Extensions">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2013-01-14 12:39:30Z">
+      <Issue>
+       <Item>Common.Extensions</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Common.Infrastructure.IoC.StructureMap">
+    <Messages>
+     <Message Id="Io" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2013-01-14 12:39:30Z">
+      <Issue Name="Namespace">
+       <Item>Io</Item>
+       <Item>Common.Infrastructure.IoC.StructureMap</Item>
+       <Item>IO</Item>
+      </Issue>
+      <Notes>
+       <User Name="gabriel.kotliar">
+        <Note Id="4" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Common.Logging">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2013-01-14 12:39:30Z">
+      <Issue>
+       <Item>Common.Logging</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Common.Persistence">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2013-01-14 12:39:30Z">
+      <Issue>
+       <Item>Common.Persistence</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/../Common/bin/Debug/Common.dll">
+    <Modules>
+     <Module Name="common.dll">
+      <Namespaces>
+       <Namespace Name="Common.Caching">
+        <Types>
+         <Type Name="Cache">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Excluded" Created="2013-01-14 14:18:31Z">
+            <Issue Name="System">
+             <Item>'Cache'</Item>
+             <Item>System.Net.Cache</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Get`1(System.String)">
+            <Messages>
+             <Message Id="Get" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Status="Excluded" Created="2013-01-14 12:39:30Z">
+              <Issue Name="Member">
+               <Item>'Cache.Get&lt;T&gt;(string)'</Item>
+               <Item>Get</Item>
+              </Issue>
+              <Notes>
+               <User Name="gabriel.kotliar">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Get`1(System.String,System.Func`1&lt;!!0&gt;)">
+            <Messages>
+             <Message Id="Get" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Status="Excluded" Created="2013-01-14 12:39:30Z">
+              <Issue Name="Member">
+               <Item>'Cache.Get&lt;T&gt;(string, Func&lt;T&gt;)'</Item>
+               <Item>Get</Item>
+              </Issue>
+              <Notes>
+               <User Name="gabriel.kotliar">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Common.Configuration">
+        <Types>
+         <Type Name="CachingProfilesCollection">
+          <Messages>
+           <Message TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010" Status="Excluded" Created="2013-01-14 14:31:14Z">
+            <Issue>
+             <Item>'CachingProfilesCollection'</Item>
+             <Item>ICollection</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Item[System.Object]">
+            <Accessors>
+             <Accessor Name="#get_Item(System.Object)">
+              <Messages>
+               <Message TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061" Status="Excluded" Created="2013-01-14 14:31:14Z">
+                <Issue>
+                 <Item>'CachingProfilesCollection.this.get(object)'</Item>
+                 <Item>'ConfigurationElement.this.get(ConfigurationProperty)'</Item>
+                </Issue>
+                <Issue>
+                 <Item>'CachingProfilesCollection.this.get(object)'</Item>
+                 <Item>'ConfigurationElement.this.get(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Common.Logging">
+        <Types>
+         <Type Name="Log">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Status="Excluded" Created="2013-01-14 12:39:30Z">
+            <Issue>
+             <Item>'Log'</Item>
+             <Item>Common.Log.Log4Net</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Logger">
+          <Members>
+           <Member Name="#GetLogEntry()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2013-01-14 12:39:30Z">
+              <Issue Certainty="50">
+               <Item>'Logger.GetLogEntry()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Common.Persistence">
+        <Types>
+         <Type Name="Repository`1">
+          <Members>
+           <Member Name="#Find(System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;)">
+            <Messages>
+             <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Excluded" Created="2013-01-14 12:39:30Z">
+              <Issue>
+               <Item>'Repository&lt;T&gt;.Find(Expression&lt;Func&lt;T, bool&gt;&gt;)'</Item>
+               <Item>'Expression&lt;Func&lt;T, bool&gt;&gt;'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Get(System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;)">
+            <Messages>
+             <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Excluded" Created="2013-01-14 12:39:30Z">
+              <Issue>
+               <Item>'Repository&lt;T&gt;.Get(Expression&lt;Func&lt;T, bool&gt;&gt;)'</Item>
+               <Item>'Expression&lt;Func&lt;T, bool&gt;&gt;'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Get" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Status="Excluded" Created="2013-01-14 12:39:30Z">
+              <Issue Name="Member">
+               <Item>'Repository&lt;T&gt;.Get(Expression&lt;Func&lt;T, bool&gt;&gt;)'</Item>
+               <Item>Get</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/../Infrastructure.IOC.StructureMap/bin/Debug/Common.Infrastructure.IoC.StructureMap.dll">
+    <Modules>
+     <Module Name="common.infrastructure.ioc.structuremap.dll">
+      <Messages>
+       <Message Id="Io" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2013-01-14 12:39:30Z">
+        <Issue Name="Assembly">
+         <Item>Io</Item>
+         <Item>'Common.Infrastructure.IoC.StructureMap.dll'</Item>
+         <Item>IO</Item>
+        </Issue>
+        <Notes>
+         <User Name="gabriel.kotliar">
+          <Note Id="3" />
+         </User>
+        </Notes>
+       </Message>
+      </Messages>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/../Persistence/NHibernate/bin/Debug/Common.Persistence.NHibernate.dll">
+    <Modules>
+     <Module Name="common.persistence.nhibernate.dll">
+      <Namespaces>
+       <Namespace Name="Common.Persistence.NHibernate">
+        <Types>
+         <Type Name="ISessionFactoryBuilder">
+          <Members>
+           <Member Name="#GetSessionFactory()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2013-01-14 12:39:30Z">
+              <Issue Certainty="50">
+               <Item>'ISessionFactoryBuilder.GetSessionFactory()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SessionModule">
+          <Members>
+           <Member Name="#ContextEndRequest(System.Object,System.EventArgs)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2013-01-14 12:39:30Z">
+              <Issue>
+               <Item>'SessionModule.ContextEndRequest(object, EventArgs)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="gabriel.kotliar">
+    <Note Id="1" Modified="2013-01-14 14:21:19Z">We are just following the underlying cahce interface.</Note>
+    <Note Id="2" Modified="2013-01-14 14:21:24Z">We are just following the underlying cahce interface.</Note>
+    <Note Id="3" Modified="2013-01-14 14:27:14Z">The IoC reference is not to IO as input output but to Inversion of Control</Note>
+    <Note Id="4" Modified="2013-01-14 14:27:02Z">The IoC reference is not to IO as input output but to Inversion of Control</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionsShouldImplementGenericInterface" Category="Microsoft.Design" CheckId="CA1010">
+    <Resolution Name="Default">{0} appears to be a non-generic, strongly typed collection. Add an implementation to the instance of {1}&lt;T&gt; where T is the underlying element type of {0}.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061">
+    <Resolution Name="Default">Change or remove {0} because it hides a more specific base class method: {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006">
+    <Resolution Name="Default">Consider a design where {0} doesn't nest generic type {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+    <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Resolution Name="Default">The type name {0} conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+    <Resolution Name="System">The type name {0} conflicts in whole or in part with the namespace name '{1}' defined in the .NET Framework. Rename the type to eliminate the conflict.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
 </FxCopProject>

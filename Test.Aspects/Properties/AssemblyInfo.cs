@@ -17,6 +17,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // this should work but for the moment is not. It's maybe a particularity of the test project
-//[assembly: Common.Aspects.CacheAspect(SlidingExpiryWindow = "60",
+//[assembly: Common.Aspects.CacheAspectAttribute(SlidingExpiryWindow = "60",
 //    AttributeTargetTypes = "Test.Aspects.CachedClass",    
 //    AttributeTargetMembers = "Get*")]

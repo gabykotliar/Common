@@ -10,11 +10,11 @@ namespace Common.Infrastructure.IoC.StructureMap
         private Type type;
         private Type implementedInterface;        
 
-        public void Process(Type scanedType, Registry registry)
+        public void Process(Type type, Registry registry)
         {
-            type = scanedType;
+            this.type = type;
 
-            if (type.IsConcreteType() && HasInterfaceWithTheSameName())
+            if (this.type.IsConcreteType() && HasInterfaceWithTheSameName())
                 RegisterType(registry);
         }
 

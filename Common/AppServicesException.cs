@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 
 namespace Common
 {
+    [Serializable]
     public class AppServicesException : ProviderException
     {
         public AppServicesException()

@@ -2,7 +2,7 @@
 
 namespace Common.Configuration
 {
-    public class CachingSubSection : ConfigurationElement
+    public class CachingSubsection : ConfigurationElement
     {
         public override bool IsReadOnly()
         {
@@ -18,9 +18,9 @@ namespace Common.Configuration
         }
 
         [ConfigurationProperty("profiles", Options = ConfigurationPropertyOptions.IsRequired)]
-        public CachingProfiles Profiles
+        public CachingProfilesCollection Profiles
         {
-            get { return (CachingProfiles)this["profiles"]; }
+            get { return (CachingProfilesCollection)this["profiles"]; }
         }
     }
 }

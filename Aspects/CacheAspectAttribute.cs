@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 
 using PostSharp.Aspects;
@@ -6,7 +7,8 @@ using PostSharp.Aspects;
 namespace Common.Aspects
 {
     [Serializable]
-    public class CacheAspect : OnMethodBoundaryAspect
+    [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Constructor | AttributeTargets.Event | AttributeTargets.Interface | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Struct, AllowMultiple = true)]
+    public sealed class CacheAspectAttribute : OnMethodBoundaryAspect
     {
         public string Profile { get; set; }
 
@@ -36,7 +38,7 @@ namespace Common.Aspects
             try
             {
                 if (!string.IsNullOrWhiteSpace(SlidingExpiryWindow))
-                    AppServices.Cache.Add(BuildKey(args), args.ReturnValue, TimeSpan.FromSeconds(int.Parse(SlidingExpiryWindow)));
+                    AppServices.Cache.Add(BuildKey(args), args.ReturnValue, TimeSpan.FromSeconds(int.Parse(SlidingExpiryWindow, CultureInfo.InvariantCulture)));
                 else if (!string.IsNullOrWhiteSpace(Profile))
                     AppServices.Cache.Add(BuildKey(args), args.ReturnValue, Profile);
                 else

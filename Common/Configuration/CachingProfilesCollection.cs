@@ -4,7 +4,7 @@ using System.Configuration;
 namespace Common.Configuration
 {
     [ConfigurationCollection(typeof(CacheProfile), AddItemName = "profile", CollectionType = ConfigurationElementCollectionType.BasicMap)]
-    public class CachingProfiles : ConfigurationElementCollection
+    public class CachingProfilesCollection : ConfigurationElementCollection
     {
         #region overrided methods
 

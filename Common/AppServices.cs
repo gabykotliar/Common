@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 using Common.Caching;
 using Common.Configuration;
@@ -26,6 +28,7 @@ namespace Common
             AppServices.cache = cache;
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]        
         public static Log Log
         {
             get
@@ -54,8 +57,9 @@ namespace Common
 
                 return log;
             }
-        }        
+        }
 
+        [SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]
         public static Cache Cache
         {
             get
@@ -91,7 +95,9 @@ namespace Common
         private static void CheckFactoryFor(string target)
         {
             if (factory == null)
-                throw new ConfigurationErrorsException(string.Format("If a specific {0} is not provided you need to provide a Factory by calling SetFactory(Factory factory)", target));
+                throw new ConfigurationErrorsException(string.Format(CultureInfo.InvariantCulture, 
+                                                                     "If a specific {0} is not provided you need to provide a Factory by calling SetFactory(Factory factory)", 
+                                                                     target));
         }
     }
 }

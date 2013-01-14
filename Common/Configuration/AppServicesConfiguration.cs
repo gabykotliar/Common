@@ -13,11 +13,11 @@ namespace Common.Configuration
         }
 
         [ConfigurationProperty("caching", IsRequired = false)]
-        public CachingSubSection Caching
+        public CachingSubsection Caching
         {
             get
             {
-                return (CachingSubSection)this["caching"];
+                return (CachingSubsection)this["caching"];
             }
         }
     }

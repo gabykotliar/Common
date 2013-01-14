@@ -9,20 +9,20 @@ namespace Common.Infrastructure.IoC.StructureMap
     {
         private Type type;
 
-        public void Process(Type scanedType, Registry registry)
+        public void Process(Type type, Registry registry)
         {
-            type = scanedType;
+            this.type = type;
 
-            if (!type.IsConcreteType()) return;
+            if (!this.type.IsConcreteType()) return;
 
-            var validatorInterface = type.GetInterface("IValidator`1");
+            var validatorInterface = this.type.GetInterface("IValidator`1");
 
             if (validatorInterface == null) return;
 
             // TODO: check if it's necesary to add this validation: if (!type.Name.StartsWith(validatorInterface.GenericTypeArguments[0].Name)) return;
             // TODO: check if it's necesary to add this validation: if (!type.Name.EndsWith("Validator")) return;
             
-            registry.AddType(validatorInterface, type);
+            registry.AddType(validatorInterface, this.type);
         }
     }
 }
