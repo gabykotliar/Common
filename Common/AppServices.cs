@@ -28,7 +28,6 @@ namespace Common
             AppServices.cache = cache;
         }
 
-        [SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]        
         public static Log Log
         {
             get
@@ -58,8 +57,7 @@ namespace Common
                 return log;
             }
         }
-
-        [SuppressMessage("Microsoft.Design", "CA1065:DoNotRaiseExceptionsInUnexpectedLocations")]
+        
         public static Cache Cache
         {
             get
