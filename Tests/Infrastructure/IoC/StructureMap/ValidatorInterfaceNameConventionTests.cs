@@ -5,27 +5,28 @@ using StructureMap.Configuration.DSL;
 
 namespace Tests.Infrastructure.IoC.StructureMap
 {
-    [TestClass]
-    public class ValidatorInterfaceNameConventionTests
-    {
-        [TestMethod]
-        [Ignore]
-        public void ProcessImplementingClassShouldAddTheTypeToTheRegistryTest()
-        {
-            var convention = new ValidatorInterfaceNameConvention();
-            var registry = new Registry();
+    //[TestClass]
+    //public class ValidatorInterfaceNameConventionTests
+    //{
+    //    [TestMethod]
+    //    [Ignore]
+    //    public void ProcessImplementingClassShouldAddTheTypeToTheRegistryTest()
+    //    {
+    //        var convention = new ValidatorInterfaceNameConvention();
+    //        var registry = new Registry();
 
-            convention.Process(typeof(GenericParameterHelperValidator), registry);
+    //        convention.Process(typeof(GenericParameterHelperValidator), registry);
 
-            Assert.Inconclusive("Check for the type being added correctly is pending");
-        }
-    }
+    //        Assert.Inconclusive("Check for the type being added correctly is pending");
+    //    }
+    //}
 
-    public interface IValidator<T>
-    {
-    }
+    //public interface IValidator<T>
+    //{
+    //}
 
-    public class GenericParameterHelperValidator : IValidator<GenericParameterHelper>
-    {
-    }
+    //public class GenericParameterHelperValidator : IValidator<GenericParameterHelper>
+    //{
+    //}
 }
+
