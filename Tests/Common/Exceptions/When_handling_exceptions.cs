@@ -12,11 +12,15 @@ namespace Tests.Common.Exceptions
     [TestClass]
     public class When_handling_exceptions : BaseTest   
     {
+        [TestInitialize]
+        public void SetupTest()
+        {
+            SetAppServicesFactory();
+        }
+
         [TestMethod]
         public void When_using_LogIfException_exception_is_handled()
         {
-            SetAppServicesFactory();
-
             Assert.Throws<DivideByZeroException>(LogIfExceptionMethod);
         }
 
