@@ -8,8 +8,9 @@ namespace Tests.Moq.Utilities
 {
     public abstract class TestHelper<T> where T : class
     {
-        private Dictionary<Type, object> _mockedInstances = new Dictionary<Type, object>();
-        private MockHelper _mockHelper;
+        private readonly Dictionary<Type, object> mockedInstances = new Dictionary<Type, object>();
+
+        private MockHelper mockHelper;
 
         /// <summary>
         /// the class under test
@@ -26,36 +27,22 @@ namespace Tests.Moq.Utilities
         /// <returns></returns>
         protected Mock<dependencyT> Instance<dependencyT>() where dependencyT : class
         {
-            if (!_mockedInstances.ContainsKey(typeof (dependencyT)))
-                _mockedInstances.Add(typeof (dependencyT), MockHelper.CreateMock<dependencyT>());
-            return _mockedInstances[typeof (dependencyT)] as Mock<dependencyT>;
-        }
+            if (!mockedInstances.ContainsKey(typeof (dependencyT)))
+                mockedInstances.Add(typeof (dependencyT), MockHelper.CreateMock<dependencyT>());
 
-        [ClassInitialize]
-        public void SetupFixture()
-        {
-            Before_all();
-        }
-
-        protected virtual void Before_all()
-        {
+            return mockedInstances[typeof (dependencyT)] as Mock<dependencyT>;
         }
 
         [TestInitialize]
-        public void Before_Each_Test()
+        public void BeforeEachTest()
         {
-            _mockedInstances.Clear();
+            mockedInstances.Clear();
             ClassBeingTested = BuildService();
-            Before_each();
         }
 
         protected MockHelper MockHelper
         {
-            get { return _mockHelper ?? (_mockHelper = new MockHelper()); }
-        }
-
-        protected virtual void Before_each()
-        {
+            get { return mockHelper ?? (mockHelper = new MockHelper()); }
         }
 
         protected virtual T BuildService()
@@ -63,7 +50,7 @@ namespace Tests.Moq.Utilities
             var result = MockHelper.BuildServiceWithMocks<T>();
 
             foreach (var mockedDependency in result.MockedDependencies)
-                _mockedInstances.Add(mockedDependency.Type, mockedDependency.Mock);
+                mockedInstances.Add(mockedDependency.Type, mockedDependency.Mock);
 
             return result.Service;
         }
@@ -94,16 +81,6 @@ namespace Tests.Moq.Utilities
             }
 
             Assert.Fail("no exception was thrown... expected a " + typeof (exceptionT).Name);
-        }
-
-        [TestCleanup]
-        public void After_each_test()
-        {
-            Cleanup();
-        }
-
-        public virtual void Cleanup()
-        {
         }
     }
 }

@@ -8,15 +8,16 @@ namespace Tests.Moq.Utilities
 {
     public class MockHelper
     {
-        private readonly IDictionary<Type, object> _userDefinedTypes = new Dictionary<Type, object>();
+        private readonly IDictionary<Type, object> userDefinedTypes = new Dictionary<Type, object>();
+
         public void RegisterUserDefinedService<T>(T instance)
         {
-            _userDefinedTypes.Add(typeof(T), instance);
+            userDefinedTypes.Add(typeof(T), instance);
         }
 
         public void ClearUserDefinedServices()
         {
-            _userDefinedTypes.Clear();
+            userDefinedTypes.Clear();
         }
 
         public MockServiceBuilderResult<T> BuildServiceWithMocks<T>()
@@ -33,7 +34,7 @@ namespace Tests.Moq.Utilities
 
                 if (UserDefinedTypeExists(parameterType))
                 {
-                    ctorParamValues[i] = _userDefinedTypes[parameterType];
+                    ctorParamValues[i] = userDefinedTypes[parameterType];
                     continue;
                 }
 
@@ -51,9 +52,8 @@ namespace Tests.Moq.Utilities
 
         private bool UserDefinedTypeExists(Type type)
         {
-            return _userDefinedTypes.ContainsKey(type);
+            return userDefinedTypes.ContainsKey(type);
         }
-
 
         private static ConstructorInfo GetCtorWithMostParameters<T>()
         {
@@ -75,30 +75,6 @@ namespace Tests.Moq.Utilities
         public Mock<T> CreateMock<T>() where T : class
         {
             return new Mock<T>();
-        }
-    }
-
-    public class MockServiceBuilderResult<T>
-    {
-
-        public T Service;
-        public List<MockDependency> MockedDependencies = new List<MockDependency>();
-
-        public void AddMockedDependency(Type type, Mock mockedInstance)
-        {
-            MockedDependencies.Add(new MockDependency(type, mockedInstance));
-        }
-    }
-
-    public class MockDependency
-    {
-        public Type Type { get; set; }
-        public Mock Mock { get; set; }
-
-        public MockDependency(Type type, Mock mockedInstance)
-        {
-            Type = type;
-            Mock = mockedInstance;
         }
     }
 }
