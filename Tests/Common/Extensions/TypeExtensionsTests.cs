@@ -16,6 +16,8 @@ namespace Tests.Common.Extensions
         [TestMethod]
         public void AbstractTypeIsNotConcreteTest()
         {
+            Assert.Fail();
+
             typeof(AbstractType).IsConcreteType().Should().BeFalse();
         }
 
