@@ -77,6 +77,7 @@
     <Compile Include="Common\Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Common\Logging\LogEntry.cs" />
     <Compile Include="Common\Logging\LogTests.cs" />
+    <Compile Include="Common\RouteData\When_passing_url_to_routeinfo.cs" />
     <Compile Include="Infrastructure\IoC\StructureMap\ValidatorInterfaceNameConventionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
