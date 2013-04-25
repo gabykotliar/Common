@@ -90,6 +90,10 @@
       <Project>{C13E0B37-79C9-49F5-8FA4-ED8203249C5D}</Project>
       <Name>Infrastructure.IoC.StructureMap</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tests.Moq\Tests.Moq.csproj">
+      <Project>{89ED65EE-304B-49D1-9477-D23FDB086699}</Project>
+      <Name>Tests.Moq</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Web\MVC\Mvc.csproj">
       <Project>{71CD61CB-4BCB-4DE9-8C08-E50255703453}</Project>
       <Name>Mvc</Name>

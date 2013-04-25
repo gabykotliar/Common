@@ -3,14 +3,16 @@ using System.Diagnostics;
 using Common;
 using Common.Exceptions;
 using Common.Logging;
+using Common.RouteData;
 using MSTestExtensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Tests.Moq.Utilities;
 
 namespace Tests.Common.RouteData
 {
     [TestClass]
-    public class When_passing_url_to_routeinfo : BaseTest   
+    public class When_passing_url_to_routeinfo : TestHelper<RouteInfo>   
     {
         [TestInitialize]
         public void SetupTest()
