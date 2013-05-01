@@ -6,47 +6,45 @@ namespace Common.RouteData
 {
     public class RouteInfo
     {
-        public System.Web.Routing.RouteData RouteData { get; private set; }
-
-        public RouteInfo(System.Web.Routing.RouteData data)
+        public static System.Web.Routing.RouteData GetRouteDataByUrl(string url)
         {
-            RouteData = data;
+            return RouteTable.Routes.GetRouteData(new RewritedHttpContextBase(url));
+        }
+    }
+
+    internal class RewritedHttpContextBase : HttpContextBase
+    {
+        private readonly HttpRequestBase mockHttpRequestBase;
+
+        public RewritedHttpContextBase(string appRelativeUrl)
+        {
+            this.mockHttpRequestBase = new MockHttpRequestBase(appRelativeUrl);
         }
 
-        public RouteInfo(Uri uri, string applicationPath)
+
+        public override HttpRequestBase Request
         {
-            RouteData = RouteTable.Routes.GetRouteData(new InternalHttpContext(uri, applicationPath));
+            get { return mockHttpRequestBase; }
         }
 
-        private class InternalHttpContext : HttpContextBase
+        private class MockHttpRequestBase : HttpRequestBase
         {
-            private readonly HttpRequestBase _request;
+            private readonly string appRelativeUrl;
 
-            public InternalHttpContext(Uri uri, string applicationPath)
+            public MockHttpRequestBase(string appRelativeUrl)
             {
-                _request = new InternalRequestContext(uri, applicationPath);
+                this.appRelativeUrl = appRelativeUrl;
             }
 
-            public override HttpRequestBase Request { get { return _request; } }
-        }
-
-        private class InternalRequestContext : HttpRequestBase
-        {
-            private readonly string _appRelativePath;
-            private readonly string _pathInfo;
-
-            public InternalRequestContext(Uri uri, string applicationPath)
+            public override string AppRelativeCurrentExecutionFilePath
             {
-                _pathInfo = uri.Query;
-
-                if (String.IsNullOrEmpty(applicationPath) || !uri.AbsolutePath.StartsWith(applicationPath, StringComparison.OrdinalIgnoreCase))
-                    _appRelativePath = uri.AbsolutePath.Substring(applicationPath.Length);
-                else
-                    _appRelativePath = uri.AbsolutePath;
+                get { return appRelativeUrl; }
             }
 
-            public override string AppRelativeCurrentExecutionFilePath { get { return String.Concat("~", _appRelativePath); } }
-            public override string PathInfo { get { return _pathInfo; } }
+            public override string PathInfo
+            {
+                get { return ""; }
+            }
         }
-    }  
+    }
 }

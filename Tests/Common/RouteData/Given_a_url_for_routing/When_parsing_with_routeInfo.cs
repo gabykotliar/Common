@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 using Common.RouteData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -11,30 +13,34 @@ using Moq;
 namespace Tests.Common.RouteData.Given_a_url_for_routing
 {
     [TestClass]
-    class When_parsing_with_routeInfo
+    public class When_parsing_with_routeInfo
     {
         [TestInitialize]
         public void SetupTest()
         {
-            SetHttpContext();
+        }
+
+        private void SetRoutes()
+        {
+            RouteTable.Routes.Add(
+                new Route(
+                    "{controller}/{action}",
+                    new RouteValueDictionary { { "controller", "Error" }, { "action", "notFound404" } },
+                    new MvcRouteHandler())
+                );
         }
 
         [TestMethod]
-        public void When_using_LogIfException_exception_is_handled()
+        public void Values_should_be_parsed_correctly()
         {
-            var uri = new Uri("error/NotFound404");
-            var routeInfo = new RouteInfo(uri, HttpContext.Current.Request.ApplicationPath);
+            SetRoutes();
+            
+            var url = @"~/error/notFound404";
+            
+            var routeData = RouteInfo.GetRouteDataByUrl(url);
 
-            // Here it is...  
-            var routeData = routeInfo.RouteData;
-        }
-
-        private void SetHttpContext()
-        {
-            var context = new Mock<HttpContextBase>();
-
-            context.SetupGet(ctx => ctx.Request.ApplicationPath).Returns("Scrumboard");
-
+            Assert.AreEqual(routeData.Values["controller"], "error");
+            Assert.AreEqual(routeData.Values["action"], "notFound404");
         }
     }
 }
