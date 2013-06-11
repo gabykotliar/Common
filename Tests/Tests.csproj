@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -77,6 +78,7 @@
     <Compile Include="Common\Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Common\Logging\LogEntry.cs" />
     <Compile Include="Common\Logging\LogTests.cs" />
+    <Compile Include="Common\RouteData\Given_a_url_for_routing\When_parsing_with_routeinfo.cs" />
     <Compile Include="Infrastructure\IoC\StructureMap\ValidatorInterfaceNameConventionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +90,10 @@
     <ProjectReference Include="..\Infrastructure.IOC.StructureMap\Infrastructure.IoC.StructureMap.csproj">
       <Project>{C13E0B37-79C9-49F5-8FA4-ED8203249C5D}</Project>
       <Name>Infrastructure.IoC.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests.Moq\Tests.Moq.csproj">
+      <Project>{89ED65EE-304B-49D1-9477-D23FDB086699}</Project>
+      <Name>Tests.Moq</Name>
     </ProjectReference>
     <ProjectReference Include="..\Web\MVC\Mvc.csproj">
       <Project>{71CD61CB-4BCB-4DE9-8C08-E50255703453}</Project>
