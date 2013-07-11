@@ -1,26 +1,15 @@
-﻿using System;
 using System.Web;
-using System.Web.Routing;
 
-namespace Common.RouteData
+namespace Common.Web.Mvc.Routing
 {
-    public class RouteInfo
-    {
-        public static System.Web.Routing.RouteData GetRouteDataByUrl(string url)
-        {
-            return RouteTable.Routes.GetRouteData(new RewritedHttpContextBase(url));
-        }
-    }
-
     internal class RewritedHttpContextBase : HttpContextBase
     {
         private readonly HttpRequestBase mockHttpRequestBase;
 
         public RewritedHttpContextBase(string appRelativeUrl)
         {
-            this.mockHttpRequestBase = new MockHttpRequestBase(appRelativeUrl);
+            mockHttpRequestBase = new MockHttpRequestBase(appRelativeUrl);
         }
-
 
         public override HttpRequestBase Request
         {
